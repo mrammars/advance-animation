@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Animation Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap&family=Lobster&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?" rel="stylesheet"> -->
+</head>
+<style>
+    .heebo{
+        font-family: 'Heebo', sans-serif;
+    }
+    .lobster{
+        font-family: 'Lobster', cursive;
+    }
+</style>
+<body>
+    <main class="heebo">
+        <section class="landing min-h-screen bg-cover bg-center bg-no-repeat " style="background-image: url(dist/image/hero.jpg)">
+            <nav class="flex items-center justify-between min-h-[10vh] px-20">
+                <h1 id="logo" class="lobster text-3xl font-light">Afloat</h1>
+                
+                <ul class="nav-links flex list-none	space-x-10">
+                    <li class="text-xl font-semibold">Home</li>
+                    <li class="text-xl font-semibold">Contact</li>
+                    <li class="text-xl font-semibold">About</li>
+                </ul>
+            </nav>
+            <h2 class="big-text absolute text-6xl text-gray-800 lobster top-[30%] flex justify-center w-full">Stay Afloat</h2>
+        </section>
+    </main>
+    <!-- <div class="intro bg-black fixed top-0 left-0 w-full h-full flex justify-center items-center">
+        <div class="intro-text text-gray-300 text-5xl heebo">
+        <h1 class="hide bg-black overflow-hidden">
+            <span class="text">Creating inovation</span>
+        </h1>
+        <h1 class="hide bg-black overflow-hidden">
+            <span class="text">For Everyday</span>
+        </h1>
+        <h1 class="hide bg-black overflow-hidden">
+            <span class="text">people.</span>
+        </h1>
+        </div>
+    </div> -->
+    <div class="slider bg-gray-700 fixed top-0 left-0 w-full h-full translate-y-full"></div>
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
+        
+        tl.to(".text", { y: "0%", duration: 1, stagger: 0.25 });
+        tl.to(".slider", { y: "-100%", duration: 1.5, delay: 0.5 });
+        tl.to(".intro", { y: "-100%", duration: 1 }, "-=1");
+        tl.fromTo("nav", { opacity: 0 }, { opacity: 1, duration: 1 });
+        tl.fromTo(".big-text", { opacity: 0 }, { opacity: 1, duration: 1 }, "-=1");
+    </script>
+</body>
+
+</html>
